@@ -83,6 +83,7 @@
 
         <!-- content -->
         <div style="width: 100%; background-color: #eee; padding: 20px;">
+            <jsp:include page="../SanPhamChiTiet/navbar.jsp"></jsp:include>
             <h3>Quản lí sản phẩm</h3>
             <div class="filter">
                 <div class="w-100 first">
@@ -210,5 +211,7 @@
             }
         });
     }
+
+    document.querySelector('.sp').classList.add("nav-active")
 
 </script>
