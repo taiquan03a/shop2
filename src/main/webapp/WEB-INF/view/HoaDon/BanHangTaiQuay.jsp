@@ -184,12 +184,12 @@
                     <div class="row d-flex justify-content-between">
                         <div class="col-6">
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Tên khách hàng</label>
-                                <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                                <label for="name" class="form-label">Tên khách hàng</label>
+                                <input type="text" name="name" class="form-control" id="name" aria-describedby="emailHelp" required>
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Số điện thoại</label>
-                                <input type="text" name="phone" class="form-control" id="exampleInputPassword1" required>
+                                <label for="phone" class="form-label">Số điện thoại</label>
+                                <input type="text" name="phone" class="form-control" id="phone" required>
                             </div>
                             <div class="type d-flex gap-2 align-items-center" style="font-size: 14px;">
                                 <div style="font-weight: 700; margin-bottom: 4px;">Phương thức thanh toán:</div>
@@ -199,17 +199,17 @@
                                 <label  for="javascript">Tiền mặt</label>
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Tiền khách trả</label>
+                                <label for="total_price" class="form-label">Tiền khách trả</label>
                                 <input type="number" name="phone1" class="form-control" id="total_price" required>
-                                <label for="exampleInputPassword1" class="form-label">Còn Dư</label>
+                                <label for="return" class="form-label">Còn Dư</label>
                                 <input type="number" name="phone2" value="0" class="form-control" id="return" readonly>
                             </div>
                             <div class="mb-3" style="display: none;">
-                                <label for="exampleInputPassword1" class="form-label"></label>
+                                <label for="list_product" class="form-label"></label>
                                 <input type="text" name="list_product" path="listProduct" value="" class="form-control" id="list_product">
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Ghi chú</label>
+                                <label class="form-label">Ghi chú</label>
                                 <textarea id="w3review" name="note" rows="4" class="w-100" required></textarea>
                             </div>
                             <button id="btn-submit" style="background-color: #ffa500;" type="submit" class="btn btn-primary">Xác nhận</button>
@@ -367,6 +367,15 @@
         else if (Object.keys(listItemSelected).length === 0) {
             event.preventDefault();
             alert("Giỏ hàng không có sản phẩm. Vui lòng thêm sản phẩm vào giỏ hàng trước khi xác nhận đơn hàng!");
+        }
+        else if(Object.keys(listItemSelected).length > 20){
+            alert("Số lượng sản phẩm tối ta là 20!");
+        }
+        else if(!document.getElementById('name').value){
+            alert("Vui lòng nhập tên!");
+        }
+        else if(document.getElementById("phone").value.replace(/\D/g, "").length !== 10){
+            alert("Số điện thoại không đúng định dạng!");
         }
         else if (tienTra < 0) {
             event.preventDefault();
